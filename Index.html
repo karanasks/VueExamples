@@ -1,0 +1,27 @@
+<div id="app">
+    <h2>{{product}} are in stock.</h2>
+    <br>
+    <h2>        
+        All products available:
+    </h2>
+    <ul>
+        <li v-for="everyProduct in manyProducts">
+            {{everyProduct}}
+        </li>
+    </ul>
+</div>
+
+<script src = "https://unpkg.com/vue"></script>
+<script>    
+    const app = new Vue({
+        el: '#app',
+        data: {
+            product: 'Boots',
+            manyProducts:[
+                'Boots',
+                'Jackets',
+                'Hiking Socks'
+            ]
+        }
+    })    
+</script>
