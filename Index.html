@@ -1,27 +1,23 @@
 <div id="app">
-    <h2>{{product}} are in stock.</h2>
-    <br>
-    <h2>        
-        All products available:
-    </h2>
-    <ul>
-        <li v-for="everyProduct in manyProducts">
-            {{everyProduct}}
-        </li>
-    </ul>
+    <div>
+        <h1>{{product}}</h1>
+        <p>{{description}}</p>
+    </div>   
 </div>
 
 <script src = "https://unpkg.com/vue"></script>
 <script>    
+    // Vue Instance: root of application
     const app = new Vue({
-        el: '#app',
-        data: {
-            product: 'Boots',
-            manyProducts:[
-                'Boots',
-                'Jackets',
-                'Hiking Socks'
-            ]
+        el: '#app', //el: to plug in to the div or any other element using expressions {{<data-member-name>}}
+        data: {     //data: holds data for the vue
+            product: 'Boots', //data
+            description: 'A pair of warm fuzzy socks' //data
+            // manyProducts:[  //data array  
+            //     'Boots',
+            //     'Jackets',
+            //     'Hiking Socks'
+            // ]
         }
     })    
 </script>
