@@ -2,7 +2,7 @@
     <head>
         <meta name="viewport" content="" />
         <title>Shopping Cart Application</title>
-        <link rel="stylesheet" type="text/css" href="Content\Styles\Site.css">
+        <link rel="stylesheet" type="text/css" href="Content/Styles/Site.css">
     </head>
 
     <body>
@@ -10,9 +10,25 @@
         <!-- Reference Element Id -->
         <div id="app">
             <div class="product">
-                <!-- Expression -->
-                <h1>{{product}}</h1>
-                <p>{{description}}</p>
+
+                <div class="product-image">
+                    <img v-bind:src="image"> 
+                </div>
+                <!-- 'image' above is the expression -->
+                <!-- shorthand for v-bind
+                :alt="description"
+                :href="url"
+                :title="toolTip"
+                :class="isActive"
+                :style="isStyled"
+                :disabled:"isDisabled"
+                -->
+        
+                <div class="product-info">
+                    <!-- Expression -->
+                    <h1>{{product}}</h1> 
+                </div>   
+                     
             </div>
         </div>
     </body>
@@ -22,19 +38,14 @@
 <!-- VueJs External Reference -->
 <!-- <script src = "https://unpkg.com/vue"></script> -->
 <!-- VueJs Internal Reference -->
-<script src = "Content\JavaScript\vue.js"></script>
+<script src = "Content/JavaScript/vue.js"></script>
 <script>    
     // Vue Instance: root of application
     const app = new Vue({
         el: '#app', //el: to plug in to the div or any other element using expressions {{<data-member-name>}}
         data: {     //data: holds data for the vue
-            product: 'Boots', //data
-            description: 'A pair of warm fuzzy socks' //data
-            // manyProducts:[  //data array  
-            //     'Boots',
-            //     'Jackets',
-            //     'Hiking Socks'
-            // ]
+            product: 'Socks', //data                        
+            image: 'Content/assets/images/socks-green-on-white.jpg'
         }
     })    
 </script>
