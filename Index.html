@@ -28,8 +28,8 @@
                     
                     <h1>{{product}}</h1>
                     
-                    <p v-if="socksInventory>10">In Stock</p>
-                    <p v-else-if="socksInventory>0 && socksInventory<10">Almost Gone!</p>
+                    <p v-if="inventory>10">In Stock</p>
+                    <p v-else-if="inventory>0 && inventory<10">Almost Gone!</p>
                     <p v-else>Out of Stock</p>
                 
                     <ul>
@@ -37,9 +37,24 @@
                     </ul>
                 
                     <div v-for="variant in variants" :key="variant.variantId">
-                        <p>{{variant.variantColor}}</p>
+                        <p @mouseover="updateProduct(variant.variantImage)">{{variant.variantColor}}</p>
                     </div>
-                    
+
+                    <div class="cart">
+                        <p>Cart({{cart}})</p>
+                    </div>
+                    <!-- directly performing operations -->
+                    <!-- <button v-on:click="cart += 1">Add to Cart</button> -->
+                    <!-- performing operations in a separate method -->
+                    <button v-on:click="addToCart">Add to Cart</button>
+                    <!-- addToCart above is a method name, and can be an expression -->
+                    <!-- shorthand for v-on is @, like
+                        @click="addToCart"
+                        @mouseover="updateProduct"
+                        @submit="addToCart"
+                        @keyup.enter="send"
+                    -->
+                    <button @click="removeFromCart">Remove From Cart</button>
                 </div>
                 
             </div>
