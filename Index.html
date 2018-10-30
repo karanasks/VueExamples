@@ -27,6 +27,18 @@
                 <div class="product-info">
                     <!-- Expression -->
                     <h1>{{product}}</h1> 
+                    <!-- v-if Using Boolean Variables -->
+                    <p v-if="inStock">In Stock</p>
+                    <p v-else>Out of Stock</p>
+                    <!-- v-if Using numeric variables -->
+                    <p v-if="socksInventory>10">In Stock</p>
+                    <p v-else-if="socksInventory>0 && socksInventory<10">Almost Gone!</p>
+                    <p v-else>Out of Stock</p>
+                    <!-- v-show using Boolean Variables 
+                    Using v-show visibility is set to false, if expression eevaluates to False
+                    -->
+                    <p v-show="inStock">In Stock</p>
+                    
                 </div>   
                      
             </div>
@@ -45,7 +57,9 @@
         el: '#app', //el: to plug in to the div or any other element using expressions {{<data-member-name>}}
         data: {     //data: holds data for the vue
             product: 'Socks', //data                        
-            image: 'Content/assets/images/socks-green-on-white.jpg'
+            image: 'Content/assets/images/socks-green-on-white.jpg',
+            inStock: true,
+            socksInventory: 0
         }
     })    
 </script>
