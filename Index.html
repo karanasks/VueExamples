@@ -25,41 +25,27 @@
                 -->
         
                 <div class="product-info">
-                    <!-- Expression -->
-                    <h1>{{product}}</h1> 
-                    <!-- v-if Using Boolean Variables -->
-                    <p v-if="inStock">In Stock</p>
-                    <p v-else>Out of Stock</p>
-                    <!-- v-if Using numeric variables -->
+                    
+                    <h1>{{product}}</h1>
+                    
                     <p v-if="socksInventory>10">In Stock</p>
                     <p v-else-if="socksInventory>0 && socksInventory<10">Almost Gone!</p>
                     <p v-else>Out of Stock</p>
-                    <!-- v-show using Boolean Variables 
-                    Using v-show visibility is set to false, if expression eevaluates to False
-                    -->
-                    <p v-show="inStock">In Stock</p>
+                
+                    <ul>
+                        <li v-for="detail in details">{{detail}}</li>
+                    </ul>
+                
+                    <div v-for="variant in variants" :key="variant.variantId">
+                        <p>{{variant.variantColor}}</p>
+                    </div>
                     
-                </div>   
-                     
+                </div>
+                
             </div>
         </div>
     </body>
 </html>
 
-
-<!-- VueJs External Reference -->
-<!-- <script src = "https://unpkg.com/vue"></script> -->
-<!-- VueJs Internal Reference -->
 <script src = "Content/JavaScript/vue.js"></script>
-<script>    
-    // Vue Instance: root of application
-    const app = new Vue({
-        el: '#app', //el: to plug in to the div or any other element using expressions {{<data-member-name>}}
-        data: {     //data: holds data for the vue
-            product: 'Socks', //data                        
-            image: 'Content/assets/images/socks-green-on-white.jpg',
-            inStock: true,
-            socksInventory: 0
-        }
-    })    
-</script>
+<script src = "Content/JavaScript/main.js"></script>
