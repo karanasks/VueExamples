@@ -92,4 +92,8 @@ textarea {
   color: #16C0B0;
   text-decoration: underline;
 }
+
+.lineThrough {
+  text-decoration: line-through;
+}
 /*# sourceMappingURL=Site.css.map */

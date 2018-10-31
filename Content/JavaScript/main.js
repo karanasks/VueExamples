@@ -17,7 +17,7 @@ const app = new Vue({
             variantImage: 'Content/assets/images/blue-shoe.png'
         },
         {
-            variantId: 1112,
+            variantId: 1113,
             variantColor: 'Black',
             variantImage: 'Content/assets/images/black-shoe.png'
         }],

@@ -36,25 +36,17 @@
                         <li v-for="detail in details">{{detail}}</li>
                     </ul>
                 
-                    <div v-for="variant in variants" :key="variant.variantId">
-                        <p @mouseover="updateProduct(variant.variantImage)">{{variant.variantColor}}</p>
+                    <!-- Set the color of box using the color from variant data -->
+                    <div v-for="variant in variants" :id="variant.variantId" class="color-box" :style="{ backgroundColor: variant.variantColor }" @mouseover="updateProduct(variant.variantImage)">                        
                     </div>
 
                     <div class="cart">
                         <p>Cart({{cart}})</p>
                     </div>
-                    <!-- directly performing operations -->
-                    <!-- <button v-on:click="cart += 1">Add to Cart</button> -->
-                    <!-- performing operations in a separate method -->
-                    <button v-on:click="addToCart">Add to Cart</button>
-                    <!-- addToCart above is a method name, and can be an expression -->
-                    <!-- shorthand for v-on is @, like
-                        @click="addToCart"
-                        @mouseover="updateProduct"
-                        @submit="addToCart"
-                        @keyup.enter="send"
-                    -->
-                    <button @click="removeFromCart">Remove From Cart</button>
+
+                    <!-- Apply disable attribute when inStock evaluates to false -->
+                    <!-- Apply disabledButton class when variable inStock evaluates to false -->
+                    <button @click="addToCart" :disabled="!inStock" :class="{ disabledButton: !inStock, lineThrough: !inStock }">Add to Cart</button>                   
                 </div>
                 
             </div>
