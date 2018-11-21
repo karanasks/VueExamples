@@ -110,6 +110,6 @@ Vue.component('my-product-comp', {
     }
 })
 
-const app = new Vue({
+var app = new Vue({
     el: '#app'
 });  
