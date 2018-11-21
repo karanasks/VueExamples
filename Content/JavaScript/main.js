@@ -26,12 +26,22 @@ const app = new Vue({
     methods:{
         addToCart() {
             this.cart += 1;
+            if(this.cart>0){
+                this.inStock = true;
+            }else{
+                this.inStock = false;
+            }
         },
         removeFromCart: function() {
             this.cart -= 1;
+            if(this.cart>0){
+                this.inStock = true;
+            }else{
+                this.inStock = false;
+            }
         },
         updateProduct(variantImage) {
             this.image = variantImage;
         }
-    }
+    } 
 });  
