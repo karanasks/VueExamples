@@ -26,7 +26,7 @@
         
                 <div class="product-info">
                     
-                    <h1>{{product}}</h1>
+                    <h1>{{title}}</h1>
                     
                     <p v-if="inventory>10">In Stock</p>
                     <p v-else-if="inventory>0 && inventory<10">Almost Gone!</p>
@@ -37,7 +37,7 @@
                     </ul>
                 
                     <!-- Set the color of box using the color from variant data -->
-                    <div v-for="variant in variants" :id="variant.variantId" class="color-box" :style="{ backgroundColor: variant.variantColor }" @mouseover="updateProduct(variant.variantImage)">                        
+                    <div v-for="(variant, index) in variants" :key="variant.variantId" :id="variant.variantId" class="color-box" :style="{ backgroundColor: variant.variantColor }" @mouseover="updateProduct(index)">                        
                     </div>
 
                     <div class="cart">
