@@ -1,4 +1,10 @@
 Vue.component('my-product-comp', {
+    props: {
+        premium:{
+            type: Boolean,
+            required: true
+        }
+    },
     template: `<div class="product">
 
     <div class="product-image">
@@ -21,7 +27,7 @@ Vue.component('my-product-comp', {
         <p v-if="inventory>10">In Stock</p>
         <p v-else-if="inventory>0 && inventory<10">Almost Gone!</p>
         <p v-else>Out of Stock</p>
-    
+        <h4>Shipping: {{shipping}}</h4>
         <ul>
             <li v-for="detail in details">{{detail}}</li>
         </ul>
@@ -91,9 +97,7 @@ Vue.component('my-product-comp', {
         },
         //method with parameter
         updateProduct(index) {
-            this.selectedVariant = index;
-            //this.image = index;
-            console.log(index);
+            this.selectedVariant = index;            
         }
     }, 
     //Computed Properties
@@ -106,10 +110,21 @@ Vue.component('my-product-comp', {
         },
         inStock() {
             return this.variants[this.selectedVariant].variantQuantity;
+        },
+        shipping() {
+            if(this.premium){
+                return "Free";
+            }
+            else{
+                return 2.99;
+            }
         }
     }
 })
 
 var app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        premium: true
+    }
 });  
